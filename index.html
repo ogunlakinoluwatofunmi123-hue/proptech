@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PropertyTech Suite</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Merriweather:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img" focusable="false">
+            <rect x="10" y="30" width="12" height="24" rx="2" fill="#1b1512" />
+            <rect x="26" y="22" width="12" height="32" rx="2" fill="#1b1512" />
+            <rect x="42" y="34" width="12" height="20" rx="2" fill="#1b1512" />
+            <rect x="18" y="36" width="4" height="6" rx="1" fill="#f8f4ef" />
+            <rect x="30" y="28" width="4" height="6" rx="1" fill="#f8f4ef" />
+            <rect x="34" y="40" width="4" height="6" rx="1" fill="#f8f4ef" />
+          </svg>
+        </div>
+        <div>
+          <p class="brand-title">PropertyTech</p>
+          <p class="brand-subtitle">Where properties run smarter.</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="ghost" id="quick-add">Quick add</button>
+        <button class="primary" id="export">Export report</button>
+      </div>
+    </header>
+
+    <nav class="app-nav">
+      <button class="nav-item active" data-view="dashboard">Overview</button>
+      <button class="nav-item" data-view="listings">Listings</button>
+      <button class="nav-item" data-view="rent">Rent</button>
+      <button class="nav-item" data-view="maintenance">Maintenance</button>
+      <button class="nav-item" data-view="analytics">Analytics</button>
+    </nav>
+
+    <main class="app-shell">
+      <section class="view active" id="view-dashboard">
+        <div class="hero-card">
+          <div>
+            <h1>Run every property like a flagship asset.</h1>
+            <p>
+              Track occupancy, collect rent, and manage maintenance from one
+              timeline. Built for landlords and property managers.
+            </p>
+            <div class="hero-actions">
+              <button class="primary" data-view="rent">Collect rent</button>
+              <button class="ghost" data-view="maintenance">Log request</button>
+            </div>
+          </div>
+          <div class="hero-metrics" id="hero-metrics"></div>
+        </div>
+
+        <div class="grid-two">
+          <div class="panel">
+            <div class="panel-header">
+              <h2>Open maintenance</h2>
+              <span class="pill" id="open-maintenance-pill">0 open</span>
+            </div>
+            <div class="panel-body" id="maintenance-preview"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <h2>Upcoming rent</h2>
+              <span class="pill" id="rent-due-pill">0 due</span>
+            </div>
+            <div class="panel-body" id="rent-preview"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-listings">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Listings</h2>
+            <button class="ghost" id="add-listing">Add listing</button>
+          </div>
+          <div class="list-grid" id="listing-cards"></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-rent">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Rent collection</h2>
+            <div class="panel-actions">
+              <button class="ghost" id="mark-all-paid">Mark all paid</button>
+              <button class="primary" id="send-reminders">Send reminders</button>
+            </div>
+          </div>
+          <div class="table" id="rent-table"></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-maintenance">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Maintenance requests</h2>
+            <button class="ghost" id="new-request">New request</button>
+          </div>
+          <div class="table" id="maintenance-table"></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-analytics">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Portfolio analytics</h2>
+            <button class="ghost" id="refresh-analytics">Refresh</button>
+          </div>
+          <div class="analytics-grid" id="analytics-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modal-title">Quick add</h3>
+          <button class="ghost" id="close-modal">Close</button>
+        </div>
+        <form id="modal-form"></form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
